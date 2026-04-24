@@ -40,9 +40,7 @@ function App() {
         canReset={totalVotes > 0}
       />
 
-      <VoteStats {...votes} />
-
-      {totalVotes === 0 && <Notification />}
+      {totalVotes > 0 ? <VoteStats {...votes} /> : <Notification />}
     </div>
   );
 }
