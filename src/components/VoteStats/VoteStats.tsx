@@ -1,15 +1,14 @@
 import styles from "./VoteStats.module.css";
+import type { Votes } from "../../types/votes";
 
-type Props = {
-  good: number;
-  neutral: number;
-  bad: number;
+type VoteStatsProps = {
+  votes: Votes;
+  totalVotes: number;
+  positiveRate: number;
 };
 
-function VoteStats({ good, neutral, bad }: Props) {
-  const totalVotes = good + neutral + bad;
-  const positiveRate = totalVotes ? Math.round((good / totalVotes) * 100) : 0;
-
+function VoteStats({ votes, totalVotes, positiveRate }: VoteStatsProps) {
+  const { good, neutral, bad } = votes;
   return (
     <div className={styles.container}>
       <p className={styles.stat}>
